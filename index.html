@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flor de Arcilla | Inicio</title>
+    
+    <!-- Carga de Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Enlace a la hoja de estilos personalizada -->
+    <link rel="stylesheet" href="style.css">
+    
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100;400;600;700&display=swap" rel="stylesheet">
+</head>
+<body class="antialiased">
+
+
+
+    <!-- Navegación y Encabezado (Fondo Marrón Tierra, Texto Blanco/Crema) -->
+    <header class="bg-primary text-background shadow-xl sticky top-0 z-10">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex justify-between items-center">
+            <!-- LOGO ACTUALIZADO: Más grande (text-3xl) y espaciado (tracking-widest) para un look elegante -->
+            <div class="text-3xl font-bold tracking-widest text-secondary">Flor de Arcilla</div>
+            <nav class="hidden md:flex space-x-6">
+                <!-- Enlace activo: text-secondary (Crema Cálido) -->
+                <a href="index.html" class="font-bold text-secondary transition duration-300">Inicio</a>
+                <!-- Enlaces inactivos: text-accent (Verde Oliva/Salvia) | Hover: text-secondary -->
+                <a href="productos.html" class="text-accent hover:text-secondary transition duration-300">Productos</a>
+                <a href="contactanos.html" class="text-accent hover:text-secondary transition duration-300">Contáctanos</a>
+                <a href="ubicacion.html" class="text-accent hover:text-secondary transition duration-300">Ubicación</a>
+                <!-- Nuevo enlace para Desarrolladores -->
+                <a href="desarrolladores.html" class="text-accent hover:text-secondary transition duration-300">Desarrolladores</a>
+            </nav>
+            <button class="md:hidden text-2xl text-secondary" aria-label="Menu">
+                &#9776; <!-- Icono de menú (Hamburguesa) -->
+            </button>
+        </div>
+    </header>
+
+    <!-- Sección Principal (Hero) - Usando la imagen del usuario -->
+    <section id="hero" class="relative bg-secondary overflow-hidden pt-20 pb-16 md:pt-28 md:pb-20">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row items-center">
+            <!-- Contenido de Texto -->
+            <div class="md:w-1/2 z-10 text-primary order-2 md:order-1 mt-10 md:mt-0">
+                <h1 class="text-5xl md:text-6xl font-extrabold mb-4 leading-tight text-primary">
+                    Belleza Natural, Texturas que Cuidan.
+                </h1>
+                <p class="text-xl mb-8">
+                    Explora nuestra línea de productos 100% naturales, formulados con la esencia más pura de la tierra.
+                </p>
+                <!-- Botón con color de Acento (Verde Oliva) -->
+                <a href="productos.html" class="inline-block bg-accent text-background font-semibold py-3 px-8 rounded-full shadow-lg hover:bg-opacity-90 transition duration-300 quiz-button">
+                    ¡Descubre!
+                </a>
+            </div>
+            <!-- Imagen de Portada -->
+            <div class="md:w-1/2 order-1 md:order-2 flex justify-center z-10">
+                <!-- Se ha cambiado 'max-w-sm' a 'max-w-md' para hacer la imagen más grande -->
+                <img src="imagen_principal.jpg" 
+                     onerror="this.src='https://placehold.co/500x300/EADCD1/594D47?text=Flor+de+Arcilla';"
+                     alt="Productos naturales de Flor de Arcilla: jabón, crema y arcilla en polvo" 
+                     class="rounded-3xl shadow-2xl w-full max-w-md transform hover:scale-[1.02] transition duration-500 ease-in-out border-4 border-white/50">
+            </div>
+        </div>
+    </section>
+
+
+    <!-- Footer común -->
+    <footer class="bg-primary text-background py-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <h3 class="text-2xl font-bold mb-4 text-secondary">Flor de Arcilla</h3>
+            <p class="max-w-2xl mx-auto text-sm mb-6 text-secondary">
+                Nuestra misión es simple: devolver a la tierra lo que tomamos. Utilizamos métodos de producción sostenibles y garantizamos que cada producto esté libre de toxinas y crueldad animal.
+            </p>
+            <p class="mt-8 text-sm opacity-75 text-secondary">
+                © 2025 Flor de Arcilla.
+            </p>
+        </div>
+    </footer>
+
+    <!-- Enlace al archivo JavaScript -->
+    <script src="script.js"></script>
+
+</body>
+</ht+ml>

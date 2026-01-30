@@ -1,0 +1,84 @@
+/* ==================================================
+PALETA DE COLORES - FLOR DE ARCILLA (ORGÁNICA)
+==================================================
+Inspirado en la imagen de productos naturales:
+- Beige muy claro
+- Crema cálido
+- Marrón Tierra Suave
+- Verde Oliva/Salvia como acento natural
+*/
+:root {
+    /* Tonos de Tierra y Crema (Base de la imagen) */
+    --color-background: #F8F4EF; /* Beige muy claro, casi blanco */
+    --color-secondary: #EADCD1;  /* Crema Cálido (Similar al fondo del producto) */
+    
+    /* Tonos de Producto (Contraste y Texto Principal) */
+    --color-primary: #594D47;    /* Marrón Oscuro / Tierra (Para texto y fondo principal) */
+    
+    /* Tono de Naturaleza (Acento y detalles) */
+    --color-accent: #8C998E;     /* Verde Oliva/Salvia (Para botones y enlaces) */
+    
+    /* Otros */
+    --color-text-light: #F8F4EF; /* Para texto sobre fondo oscuro */
+    --color-text-dark: #594D47;  /* Para texto sobre fondo claro */
+}
+
+/* Aplicar el color de fondo a todo el cuerpo */
+body {
+    background-color: var(--color-background);
+    color: var(--color-text-dark);
+    font-family: 'Inter', sans-serif;
+}
+
+/* Clases de utilidad de Tailwind personalizadas para la nueva paleta */
+.bg-primary { background-color: var(--color-primary); }
+.text-primary { color: var(--color-primary); }
+.bg-secondary { background-color: var(--color-secondary); }
+.text-secondary { color: var(--color-secondary); }
+.bg-background { background-color: var(--color-background); }
+.text-background { color: var(--color-text-light); }
+.bg-accent { background-color: var(--color-accent); }
+.text-accent { color: var(--color-accent); }
+
+/* Estilos de Botones Generales */
+.quiz-button {
+    /* Animación de elevación y sombra sutil */
+    transition: transform 0.2s, box-shadow 0.2s, background-color 0.2s;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Sombra inicial */
+}
+
+.quiz-button:hover {
+    transform: translateY(-2px); /* Ligeramente más arriba */
+    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.15); /* Sombra más pronunciada */
+}
+
+/* Estilos para la sección de Productos (productos.html) */
+
+.accordion-header {
+    /* Estilo para los botones de las categorías */
+    border: 1px solid var(--color-primary);
+    border-radius: 12px;
+}
+
+.product-list {
+    /* Contenedor de la lista de productos */
+    overflow: hidden;
+    padding: 0;
+    margin-top: -16px; /* Ajuste para que se vea como un acordeón */
+}
+
+.product-card {
+    /* Estilo para cada tarjeta de producto */
+    background-color: white;
+    padding: 1rem;
+    border-radius: 10px;
+    text-align: center;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+.product-image {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+    margin-bottom: 0.75rem;
+}

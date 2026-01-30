@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flor de Arcilla | Contáctanos</title>
+    
+    <!-- Carga de Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <style>
+        /* Definición de la paleta de colores de Flor de Arcilla */
+        :root {
+            --color-primary: #594D47;   /* Marrón Tierra Oscuro */
+            --color-secondary: #EADCD1; /* Crema Cálido / Arcilla Clara */
+            --color-accent: #A5A58D;    /* Verde Oliva/Salvia */
+            --color-background: #F8F5F2;/* Fondo Blanco Roto */
+        }
+        .bg-primary { background-color: var(--color-primary); }
+        .text-primary { color: var(--color-primary); }
+        .bg-secondary { background-color: var(--color-secondary); }
+        .text-secondary { color: var(--color-secondary); }
+        .bg-accent { background-color: var(--color-accent); }
+        .text-accent { color: var(--color-accent); }
+        .bg-background { background-color: var(--color-background); }
+        .text-background { color: var(--color-background); }
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            color: var(--color-primary);
+        }
+    </style>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100;400;600;700&display=swap" rel="stylesheet">
+</head>
+<body class="antialiased bg-background">
+
+    <!-- Navegación y Encabezado (Fondo Marrón Tierra, Texto Blanco/Crema) -->
+    <header class="bg-primary text-background shadow-xl sticky top-0 z-10">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex justify-between items-center">
+            <div class="text-3xl font-bold tracking-widest text-secondary">Flor de Arcilla</div>
+            <nav class="hidden md:flex space-x-6">
+                <!-- Enlaces inactivos: text-accent (Verde Oliva/Salvia) | Hover: text-secondary -->
+                <a href="index.html" class="text-accent hover:text-secondary transition duration-300">Inicio</a>
+                <a href="productos.html" class="text-accent hover:text-secondary transition duration-300">Productos</a>
+                <!-- Enlace activo: text-secondary (Crema Cálido) -->
+                <a href="contactanos.html" class="font-bold text-secondary transition duration-300">Contáctanos</a>
+                <a href="ubicacion.html" class="text-accent hover:text-secondary transition duration-300">Ubicación</a>
+                <a href="desarrolladores.html" class="text-accent hover:text-secondary transition duration-300">Desarrolladores</a>
+            </nav>
+            <button class="md:hidden text-2xl text-secondary" aria-label="Menu">
+                &#9776; <!-- Icono de menú (Hamburguesa) -->
+            </button>
+        </div>
+    </header>
+
+    <!-- Sección de Contacto Principal -->
+    <section id="contacto" class="py-16 md:py-24">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12">
+                <h1 class="text-5xl font-extrabold text-primary mb-4">
+                    Estamos Listos para Ayudarte
+                </h1>
+                <p class="text-xl text-gray-700">
+                    Envíanos un mensaje o encuéntranos en nuestras redes y tienda física.
+                </p>
+            </div>
+
+            <div class="flex flex-col lg:flex-row gap-12">
+                
+                <!-- Formulario de Contacto (Ahora ocupa más espacio en pantallas grandes) -->
+                <div class="lg:w-2/3 bg-white p-8 rounded-2xl shadow-xl border border-primary/20 mx-auto">
+                    <h2 class="text-3xl font-bold text-primary mb-6">Envíanos un Mensaje</h2>
+                    <form onsubmit="event.preventDefault(); showMessage('Mensaje Enviado', 'Gracias por contactarnos. Responderemos a tu consulta a la brevedad posible.');">
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-4">
+                            <!-- Nombre -->
+                            <div>
+                                <label for="name" class="block text-sm font-medium text-primary mb-1">Nombre</label>
+                                <input type="text" id="name" name="name" required class="w-full p-3 border border-gray-300 rounded-lg focus:ring-accent focus:border-accent">
+                            </div>
+                            <!-- Email -->
+                            <div>
+                                <label for="email" class="block text-sm font-medium text-primary mb-1">Email</label>
+                                <input type="email" id="email" name="email" required class="w-full p-3 border border-gray-300 rounded-lg focus:ring-accent focus:border-accent">
+                            </div>
+                        </div>
+                        
+                        <!-- Mensaje -->
+                        <div class="mb-6">
+                            <label for="message" class="block text-sm font-medium text-primary mb-1">Mensaje</label>
+                            <textarea id="message" name="message" rows="4" required class="w-full p-3 border border-gray-300 rounded-lg focus:ring-accent focus:border-accent"></textarea>
+                        </div>
+                        
+                        <!-- Botón de Envío -->
+                        <button type="submit" class="w-full bg-primary text-background font-semibold py-3 rounded-full shadow-lg hover:bg-opacity-90 transition duration-300">
+                              Enviar Consulta
+                        </button>
+                    </form>
+                </div>
+                
+                <!-- Redes Sociales y Horario (Lateral) -->
+                <div class="lg:w-1/3 space-y-8">
+                    
+                    <!-- Redes Sociales y Chat -->
+                    <div class="bg-secondary p-6 rounded-2xl shadow-xl border border-primary/20">
+                        <h3 class="text-2xl font-bold text-primary mb-4">Síguenos y Chatea</h3>
+                        <div class="flex flex-col space-y-4 justify-start items-start">
+
+                            <!-- Email Directo -->
+                            <a href="https://gmail.com/#inbox?compose=CllgCJfrslhHpsgfZcZPqLGPjlXZnHHdKNbQlTdkzBCFfnVJvQwVjQMwhRFPXJTvFBVFrWRrZSq">
+                                info.FlordeArcilla@gmail.com
+                            </a>
+
+                            <!-- Enlace de Instagram -->
+                            <a href="https://www.instagram.com/flord.earcilla?igsh=MWFnaG8zZXRidnZubQ==" 
+                               target="_blank" 
+                               rel="noopener noreferrer" 
+                               class="text-primary hover:text-accent transition duration-300 text-xl font-medium flex items-center"
+                               aria-label="Instagram de Flor de Arcilla">
+                                📸 Instagram
+                            </a>
+                            <!-- Enlace de WhatsApp REAL -->
+                            <a href="https://wa.me/593963839248" 
+                               target="_blank" 
+                               rel="noopener noreferrer"
+                               class="text-primary hover:text-accent transition duration-300 text-xl font-medium flex items-center"
+                               aria-label="Chatea con nosotros por WhatsApp">
+                                💬 WhatsApp (+593 96 383 9248)
+                            </a>
+                        </div>
+                    </div>
+                    
+                    <!-- Horario -->
+                    <div class="bg-secondary p-6 rounded-2xl shadow-xl border border-primary/20">
+                        <h3 class="text-2xl font-bold text-primary mb-4">Horario</h3>
+                         <p class="text-lg text-primary font-medium flex items-center mb-3">
+                         </p>
+                        <p class="text-lg text-primary">Lunes a Sábado: 10:00 - 18:00</p>
+                        <p class="text-md text-gray-700 mt-2">Domingos y festivos: Cerrado</p>
+                    </div>
+
+                </div>
+            </div>
+            
+        </div>
+    </section>
+
+    <!-- Modal para Mensajes (Reemplaza a alert()) -->
+    <div id="modal-message" class="fixed inset-0 bg-black bg-opacity-50 hidden items-center justify-center z-50">
+        <div class="bg-white p-6 rounded-xl shadow-2xl max-w-sm w-full text-center">
+            <h3 id="modal-title" class="text-2xl font-bold text-primary mb-3"></h3>
+            <p id="modal-text" class="text-gray-700 mb-6"></p>
+            <button onclick="closeModal()" class="bg-primary text-background font-semibold py-2 px-6 rounded-full hover:bg-opacity-90 transition">
+                Cerrar
+            </button>
+        </div>
+    </div>
+
+    <!-- Footer común -->
+    <footer class="bg-primary text-background py-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <h3 class="text-2xl font-bold mb-4 text-secondary">Flor de Arcilla</h3>
+            <p class="max-w-2xl mx-auto text-sm mb-6 text-secondary">
+                Nuestra misión es simple: devolver a la tierra lo que tomamos. Utilizamos métodos de producción sostenibles y garantizamos que cada producto esté libre de toxinas y crueldad animal.
+            </p>
+            <p class="mt-8 text-sm opacity-75 text-secondary">
+                © 2024 Flor de Arcilla. Proyecto de Grado.
+            </p>
+        </div>
+    </footer>
+
+    <!-- JavaScript para el manejo del Modal -->
+    <script>
+        function showMessage(title, text) {
+            document.getElementById('modal-title').innerText = title;
+            document.getElementById('modal-text').innerText = text;
+            document.getElementById('modal-message').classList.remove('hidden');
+            document.getElementById('modal-message').classList.add('flex');
+        }
+
+        function closeModal() {
+            document.getElementById('modal-message').classList.add('hidden');
+            document.getElementById('modal-message').classList.remove('flex');
+        }
+    </script>
+
+</body>
+</html>

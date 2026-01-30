@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flor de Arcilla | Productos</title>
+    
+    <!-- Carga de Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Enlace a la hoja de estilos personalizada -->
+    <link rel="stylesheet" href="style.css">
+    
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100;400;600;700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="style_productos.css">
+
+    <script src="https://kit.fontawesome.com/57faba85b1.js" crossorigin="anonymous"></script>
+
+    
+</head>
+<body class="antialiased">
+
+
+
+    <!-- Navegación y Encabezado (Fondo Marrón Tierra, Texto Blanco/Crema) -->
+    <header class="bg-primary text-background shadow-xl sticky top-0 z-10">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex justify-between items-center">
+            <!-- LOGO ACTUALIZADO: Más grande (text-3xl) y espaciado (tracking-widest) para un look elegante -->
+            <div class="text-3xl font-bold tracking-widest text-secondary">Flor de Arcilla</div>
+            <nav class="hidden md:flex space-x-6">
+                <!-- Enlace activo: text-secondary (Crema Cálido) -->
+                <a href="index.html" class="text-accent hover:text-secondary transition duration-300">Inicio</a>
+                <!-- Enlaces inactivos: text-accent (Verde Oliva/Salvia) | Hover: text-secondary -->
+                <a href="productos.html" class="font-bold text-secondary transition duration-300">Productos</a>
+                <a href="contactanos.html" class="text-accent hover:text-secondary transition duration-300">Contáctanos</a>
+                <a href="ubicacion.html" class="text-accent hover:text-secondary transition duration-300">Ubicación</a>
+                <!-- Nuevo enlace para Desarrolladores -->
+                <a href="desarrolladores.html" class="text-accent hover:text-secondary transition duration-300">Desarrolladores</a>
+            </nav>
+            <button class="md:hidden text-2xl text-secondary" aria-label="Menu">
+                &#9776; <!-- Icono de menú -->
+            </button>
+        </div>
+    </header>
+
+
+<!--secciones-->
+    <section class="bg-secondary py-16 text-center">
+        <h1 class="text-5xl font-extrabold text-primary mb-3">SERUMS</h1>
+        <p class="text-xl text-gray-700">Fórmulas puras, libres de químicos y potenciadas por el poder de la naturaleza.</p>
+
+                <link rel="stylesheet" href="style_carrito.css">
+
+
+<!-- CARRITO -->
+<div class="container">
+  <nav id="carrito">
+    <div class="cart-icon">
+      <i class="fa-solid fa-cart-shopping"></i>
+
+      <div class="buy-card">
+        <ul class="nav-card header">
+          <li>Img</li>
+          <li>Nombre</li>
+          <li>Precio</li>
+          <li>Cant.</li>
+          <li></li>
+        </ul>
+
+        <div id="lista-carrito" class="productos_lista"></div>
+
+        <p class="total">Total: $<span id="total">0.00</span></p>
+
+        <button id="comprar_carrito" class="btn-comprar">Comprar</button>
+        <button id="vaciar_carrito">Vaciar carrito</button>
+      </div>
+    </div>
+  </nav>
+</div>
+
+
+    </section>
+
+        <section class="py-16 md:py-24 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        
+        <!-- Diseño en cuadrícula para las 6 categorías (3 columnas en desktop) -->
+        <div id="productos" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
+
+
+             <div class="producto group bg-white rounded-2xl shadow-lg hover:shadow-xl transition duration-300 overflow-hidden border border-primary/10"
+     data-nombre="Serum de Rosa Mosqueta"
+     data-precio="25.00"
+     data-categoria="Serums">
+
+  <img src="img_serum_rosa_mosqueta.jpg" alt="serums">
+  <h3 align="center">Sérum de Rosa Mosqueta</h3>
+  <p>Ayuda a regenerar la piel, mejorar manchas y unificar el tono. <br>Ideal para piel madura o con marcas.
+  </p>
+  <div class="precio">$25.00</div>
+
+  <button onclick="agregarAlCarrito(11)">Agregar al carrito</button>
+</div>
+
+
+
+             <div class="producto group bg-white rounded-2xl shadow-lg hover:shadow-xl transition duration-300 overflow-hidden border border-primary/10"
+     data-nombre="Serum de Te Verde"
+     data-precio="22.30"
+     data-categoria="Serums">
+
+  <img src="img_serum_te_verde.jpg" alt="serums">
+  <h3 align="center">Sérum de Té Verde</h3>
+  <p>Antioxidante natural que ayuda a controlar el exceso de grasa y a mantener la piel limpia. <br> Ideal para piel grasa o con acné.
+  </p>
+  <div class="precio">$22.30</div>
+
+  <button onclick="agregarAlCarrito(12)">Agregar al carrito</button>
+</div>
+
+
+
+             <div class="producto group bg-white rounded-2xl shadow-lg hover:shadow-xl transition duration-300 overflow-hidden border border-primary/10"
+     data-nombre="Serum de Calendula"
+     data-precio="26.60"
+     data-categoria="Serums">
+
+  <img src="img_serum_calendula.png" alt="serums">
+  <h3 align="center">Sérum de Calendúla</h3>
+  <p>Favorece la regeneración de la piel y ayuda a calmar irritaciones.<br> Perfecto para piel sensible o dañada.
+  </p>
+  <div class="precio">$26.60</div>
+
+  <button onclick="agregarAlCarrito(13)">Agregar al carrito</button>
+</div>
+
+
+             <div class="producto group bg-white rounded-2xl shadow-lg hover:shadow-xl transition duration-300 overflow-hidden border border-primary/10"
+     data-nombre="Serum de Lavanda"
+     data-precio="24.20"
+     data-categoria="Serums">
+
+  <img src="img_serum_lavanda.jpg" alt="serums">
+  <h3 align="center">Sérum de Lavanda</h3>
+  <p>Ayuda a equilibrar la piel, calmar el enrojecimiento y mejorar su apariencia.<br> Recomendado para piel sensible o con imperfecciones leves.  </p>
+  <div class="precio">$24.20</div>
+
+  <button onclick="agregarAlCarrito(14)">Agregar al carrito</button>
+</div>
+
+
+             <div class="producto group bg-white rounded-2xl shadow-lg hover:shadow-xl transition duration-300 overflow-hidden border border-primary/10"
+     data-nombre="Serumde Aceite de Almendras"
+     data-precio="22.00"
+     data-categoria="Serums">
+
+  <img src="img_serum_aceite_almendras.png" alt="serums">
+  <h3 align="center">Sérum de Aceite de Almendras</h3>
+  <p>Hidrata, suaviza y mejora la elasticidad de la piel. <br>Ideal para piel seca o delicada.</p>
+  <div class="precio">$22.00</div>
+
+  <button onclick="agregarAlCarrito(15)">Agregar al carrito</button>
+</div>
+        </div>
+    </section>
+                    <script src="style_carrito.js"></script>
+
+</body>
+</html>

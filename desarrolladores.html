@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flor de Arcilla | Desarrolladores</title>
+    
+    <!-- Carga de Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Enlace a la hoja de estilos personalizada -->
+    <link rel="stylesheet" href="style.css">
+    
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100;400;600;700&display=swap" rel="stylesheet">
+</head>
+<body class="antialiased">
+
+    <!-- Navegación y Encabezado (Fondo Marrón Tierra, Texto Blanco/Crema) -->
+    <header class="bg-primary text-background shadow-xl sticky top-0 z-10">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex justify-between items-center">
+            <div class="text-3xl font-bold tracking-widest text-secondary">Flor de Arcilla</div>
+            <nav class="hidden md:flex space-x-6">
+                <!-- Enlaces inactivos: text-accent (Verde Oliva/Salvia) | Hover: text-secondary -->
+                <a href="index.html" class="text-accent hover:text-secondary transition duration-300">Inicio</a>
+                <a href="productos.html" class="text-accent hover:text-secondary transition duration-300">Productos</a>
+                <a href="contactanos.html" class="text-accent hover:text-secondary transition duration-300">Contáctanos</a>
+                <a href="ubicacion.html" class="text-accent hover:text-secondary transition duration-300">Ubicación</a>
+                <!-- Enlace activo: text-secondary (Crema Cálido) -->
+                <a href="desarrolladores.html" class="font-bold text-secondary transition duration-300">Desarrolladores</a>
+            </nav>
+            <button class="md:hidden text-2xl text-secondary" aria-label="Menu">
+                &#9776; <!-- Icono de menú (Hamburguesa) -->
+            </button>
+        </div>
+    </header>
+
+    <!-- Sección de Desarrolladores -->
+    <section id="desarrolladores" class="py-16 md:py-24 bg-background min-h-screen flex items-center justify-center">
+        <div class="max-w-xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <h1 class="text-4xl font-bold text-primary mb-12">
+                Equipo de Desarrollo del Proyecto
+            </h1>
+            
+            <div class="space-y-6">
+                <!-- Miembro 1 -->
+                <div class="bg-secondary p-6 rounded-xl shadow-lg border border-primary/20 text-left">
+                    <h3 class="text-xl font-bold text-primary mb-1">Malena Alfonso</h3>
+                    <p class="text-lg text-gray-700">
+                        <span class="font-semibold text-primary">Email:</span> malenaalfonso306@gmail.com
+                    </p>
+                    <p class="text-lg text-gray-700">
+                        <span class="font-semibold text-primary">Teléfono:</span> +593 999 000 111
+                    </p>
+                </div>
+                
+                <!-- Miembro 2 -->
+                <div class="bg-secondary p-6 rounded-xl shadow-lg border border-primary/20 text-left">
+                    <h3 class="text-xl font-bold text-primary mb-1">Justhey León</h3>
+                    <p class="text-lg text-gray-700">
+                        <span class="font-semibold text-primary">Email:</span> justhey.leon@gmail.com
+                    </p>
+                    <p class="text-lg text-gray-700">
+                        <span class="font-semibold text-primary">Teléfono:</span> +593 9921 869 281
+                    </p>
+                </div>
+                
+                <!-- Miembro 3 -->
+                <div class="bg-secondary p-6 rounded-xl shadow-lg border border-primary/20 text-left">
+                    <h3 class="text-xl font-bold text-primary mb-1">Ariana Solorzano</h3>
+                    <p class="text-lg text-gray-700">
+                        <span class="font-semibold text-primary">Email:</span> ariana.solorzano21@gmail.com
+                    </p>
+                    <p class="text-lg text-gray-700">
+                        <span class="font-semibold text-primary">Teléfono:</span> +593 932 465 322
+                    </p>
+                </div>
+            </div>
+            
+            <p class="text-md text-gray-500 mt-10">
+                Este sitio web fue creado como parte de un Proyecto de Grado/Exposición.
+            </p>
+        </div>
+    </section>
+
+    <!-- Footer común -->
+    <footer class="bg-primary text-background py-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <h3 class="text-2xl font-bold mb-4 text-secondary">Flor de Arcilla</h3>
+            <p class="max-w-2xl mx-auto text-sm mb-6 text-secondary">
+                Nuestra misión es simple: devolver a la tierra lo que tomamos. Utilizamos métodos de producción sostenibles y garantizamos que cada producto esté libre de toxinas y crueldad animal.
+            </p>
+            <p class="mt-8 text-sm opacity-75 text-secondary">
+                © 2025 Flor de Arcilla.
+            </p>
+        </div>
+    </footer>
+
+    <!-- Enlace al archivo JavaScript -->
+    <script src="script.js"></script>
+
+</body>
+</html>

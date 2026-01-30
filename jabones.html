@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flor de Arcilla | Productos</title>
+    
+    <!-- Carga de Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Enlace a la hoja de estilos personalizada -->
+    <link rel="stylesheet" href="style.css">
+    
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100;400;600;700&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="style_productos.css">
+
+    <script src="https://kit.fontawesome.com/57faba85b1.js" crossorigin="anonymous"></script>
+
+
+
+</head>
+<body class="antialiased">
+
+
+    <!-- Navegación y Encabezado (Fondo Marrón Tierra, Texto Blanco/Crema) -->
+    <header class="bg-primary text-background shadow-xl sticky top-0 z-10">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex justify-between items-center">
+            <!-- LOGO ACTUALIZADO: Más grande (text-3xl) y espaciado (tracking-widest) para un look elegante -->
+            <div class="text-3xl font-bold tracking-widest text-secondary">Flor de Arcilla</div>
+            <nav class="hidden md:flex space-x-6">
+                <!-- Enlace activo: text-secondary (Crema Cálido) -->
+                <a href="index.html" class="text-accent hover:text-secondary transition duration-300">Inicio</a>
+                <!-- Enlaces inactivos: text-accent (Verde Oliva/Salvia) | Hover: text-secondary -->
+                <a href="productos.html" class="font-bold text-secondary transition duration-300">Productos</a>
+                <a href="contactanos.html" class="text-accent hover:text-secondary transition duration-300">Contáctanos</a>
+                <a href="ubicacion.html" class="text-accent hover:text-secondary transition duration-300">Ubicación</a>
+                <!-- Nuevo enlace para Desarrolladores -->
+                <a href="desarrolladores.html" class="text-accent hover:text-secondary transition duration-300">Desarrolladores</a>
+            </nav>
+
+
+
+            <button class="md:hidden text-2xl text-secondary" aria-label="Menu">
+                &#9776; <!-- Icono de menú -->
+            </button>
+        </div>
+
+    </header>
+
+
+<!--secciones-->
+    <section class="bg-secondary py-16 text-center">
+        <h1 class="text-5xl font-extrabold text-primary mb-3">JABONES</h1>
+       <p class="text-xl text-gray-700">Fórmulas puras, libres de químicos y potenciadas por el poder de la naturaleza.</p>
+          <div class="container">
+                <link rel="stylesheet" href="style_carrito.css">
+
+
+<!-- CARRITO -->
+<div class="container">
+  <nav id="carrito">
+    <div class="cart-icon">
+      <i class="fa-solid fa-cart-shopping"></i>
+
+      <div class="buy-card">
+        <ul class="nav-card header">
+          <li>Img</li>
+          <li>Nombre</li>
+          <li>Precio</li>
+          <li>Cant.</li>
+          <li></li>
+        </ul>
+
+        <div id="lista-carrito" class="productos_lista"></div>
+
+        <p class="total">Total: $<span id="total">0.00</span></p>
+
+        <button id="comprar_carrito" class="btn-comprar">Comprar</button>
+        <button id="vaciar_carrito">Vaciar carrito</button>
+      </div>
+    </div>
+  </nav>
+</div>
+    </section>
+
+        <section class="py-16 md:py-24 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        
+        <!-- Diseño en cuadrícula para las 6 categorías (3 columnas en desktop) -->
+        <div id="productos" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
+
+
+
+            <!--PRODUCTO 1-->
+<div class="producto group bg-white rounded-2xl shadow-lg hover:shadow-xl transition duration-300 overflow-hidden border border-primary/10"
+     data-nombre="Jabón de Coco"
+     data-precio="2.00"
+     data-categoria="Jabones">
+
+  <img src="img_jabones_coco.jpg" alt="jabones">
+  <h3 align="center">Jabón de Coco</h3>
+  <p>
+    Limpieza profunda.<br>
+    Ayuda a eliminar impurezas, exceso de grasa y toxinas.<br>
+    Recomendado para piel mixta.
+  </p>
+  <div class="precio">$2.00</div>
+
+  <button onclick="agregarAlCarrito(1)">Agregar al carrito</button>
+</div>
+            <!--PRODUCTO 2-->
+
+              <div class="producto group bg-white rounded-2xl shadow-lg hover:shadow-xl transition duration-300 overflow-hidden border border-primary/10"
+     data-nombre="Jabón de Café y Canela"
+     data-precio="2.00"
+     data-categoria="Jabones">
+
+  <img src="img_jabones_canela.jpg" alt="jabones">
+  <h3 align="center">Jabón de Café y Canela</h3>
+  <p>
+    Estimula la piel y mejora su apariencia.<br>
+    Exfoliación natural suave.<br>
+    Ideal para el cuerpo.
+  </p>
+  <div class="precio">$2.00</div>
+
+  <button onclick="agregarAlCarrito(2)">Agregar al carrito</button>
+</div>
+            <!--PRODUCTO 3-->
+
+            <div class="producto group bg-white rounded-2xl shadow-lg hover:shadow-xl transition duration-300 overflow-hidden border border-primary/10"
+     data-nombre="Jabón de Avena y Miel"
+     data-precio="5.00"
+     data-categoria="Jabones">
+
+  <img src="img_jabones_avena.jpg" alt="jabones">
+  <h3 align="center">Jabón de Avena y Miel</h3>
+  <p>
+    Ideal para piel sensible y seca.<br>
+    Limpia suavemente y aporta hidratación natural.
+  </p>
+  <div class="precio">$5.00</div>
+
+  <button onclick="agregarAlCarrito(3)">Agregar al carrito</button>
+</div>
+            <!--PRODUCTO 4-->
+
+             <div class="producto group bg-white rounded-2xl shadow-lg hover:shadow-xl transition duration-300 overflow-hidden border border-primary/10"
+     data-nombre="Jabón de Rosas"
+     data-precio="3.50"
+     data-categoria="Jabones">
+
+  <img src="img_jabones_rosas.jpg" alt="jabones">
+  <h3 align="center">Jabón de Rosas</h3>
+  <p>
+    Aporta frescura y suavidad.<br>
+    Ideal para el cuidado diario.
+  </p>
+  <div class="precio">$3.50</div>
+
+  <button onclick="agregarAlCarrito(4)">Agregar al carrito</button>
+</div>
+            <!--PRODUCTO 5-->
+
+            <div class="producto group bg-white rounded-2xl shadow-lg hover:shadow-xl transition duration-300 overflow-hidden border border-primary/10"
+     data-nombre="Jabón de Carbon"
+     data-precio="3.50"
+     data-categoria="Jabones">
+
+  <img src="img_jabones_carbon.jpg" alt="jabones">
+  <h3 align="center">Jabón de Carbon</h3>
+  <p>Limpieza profunda que ayuda a eliminar impurezas, exceso de grasa y toxinas.<br> Recomendado para piel mixta o grasa y para quienes buscan un efecto purificante.
+  </p>
+  <div class="precio">$3.50</div>
+
+  <button onclick="agregarAlCarrito(5)">Agregar al carrito</button>
+</div>
+
+
+          </div>
+            </div>
+        </section>
+        <script src="style_carrito.js"></script>
+
+</body>
+</html>
