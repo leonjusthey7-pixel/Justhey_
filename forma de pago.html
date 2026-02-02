@@ -75,21 +75,23 @@
     <main class="flex-grow flex items-center justify-center p-4">
         
         <!-- PANTALLA DE LOGIN (Simplificada para flujo rápido) -->
+        <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js/dist/umd/supabase.js"></script>
         <div id="login-section" class="fade-in bg-white p-8 rounded-2xl shadow-xl w-full max-w-md">
-            <div class="text-center mb-8">
-                <h2 class="font-serif text-3xl mb-2">Mi Cuenta</h2>
-                <p class="text-gray-500">Inicia sesión para finalizar tu pedido</p>
-            </div>
-            
-            <form onsubmit="event.preventDefault(); showSection();">
-                <div class="space-y-4">
-                    <input type="email" placeholder="Correo electrónico" class="input-field" required>
-                    <input type="password" placeholder="Contraseña" class="input-field" required>
-                    <button type="submit" class="btn-primary">Continuar al Pago</button>
-                </div>
-                <p class="mt-6 text-center text-xs text-gray-400">¿Nuevo cliente? <span class="text-accent cursor-pointer font-bold">Crear cuenta</span></p>
-            </form>
+    <div class="text-center mb-8">
+        <h2 class="font-serif text-3xl mb-2">Mi Cuenta</h2>
+        <p class="text-gray-500">Inicia sesión para finalizar tu pedido</p>
+    </div>
+    
+    <form id="loginForm">
+        <div class="space-y-4">
+            <input type="text" id="usuario" placeholder="Usuario" class="input-field" required>
+            <input type="email" id="correo" placeholder="Correo electrónico" class="input-field" required>
+            <input type="password" id="password" placeholder="Contraseña" class="input-field" required>
+            <button type="submit" class="btn-primary">Continuar al Pago</button>
         </div>
+        <p class="mt-6 text-center text-xs text-gray-400">¿Nuevo cliente? <span class="text-accent cursor-pointer font-bold">Crear cuenta</span></p>
+    </form>
+</div>
 
         <!-- PANTALLA DE PAGO -->
         <div id="payment-section" class="fade-in bg-white p-8 rounded-3xl shadow-2xl w-full max-w-4xl hidden">
@@ -234,5 +236,35 @@
     localStorage.removeItem("carrito");
   }
 </script>
+
+<script>
+// Configura tu conexión a Supabase
+const supabaseUrl = 'https://ufajxdbkvxlcsohtindu.supabase.co';      // ← Reemplaza con tu URL
+const supabaseKey = 'sb_publishable_xoZwd-a_v9wW0STtHJqsUw_VSwoBqTx'; // ← Reemplaza con tu ANON KEY
+const supabase = window.supabase.createClient(supabaseUrl, supabaseKey);
+
+document.getElementById('loginForm').addEventListener('submit', async function(event) {
+    event.preventDefault();
+    const usuario = document.getElementById('usuario').value;
+    const correo = document.getElementById('correo').value;
+
+    // Guarda en la tabla "usuarios"
+    const { data, error } = await supabase
+        .from('usuarios') // ← Cambia por el nombre de tu tabla
+        .insert([{ usuario, correo }]);
+
+    if (error) {
+        alert('Error al guardar: ' + error.message);
+        return;
+    } else {
+        alert('¡Usuario guardado con éxito!');
+        showSection();
+    }
+
+    // Aquí podrías iniciar sesión o mostrar el siguiente paso
+});
+</script>
+    
 </body>
+
 </html>
