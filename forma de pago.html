@@ -75,7 +75,6 @@
     <main class="flex-grow flex items-center justify-center p-4">
         
         <!-- PANTALLA DE LOGIN (Simplificada para flujo rápido) -->
-        <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js/dist/umd/supabase.js"></script>
         <div id="login-section" class="fade-in bg-white p-8 rounded-2xl shadow-xl w-full max-w-md">
     <div class="text-center mb-8">
         <h2 class="font-serif text-3xl mb-2">Mi Cuenta</h2>
@@ -237,34 +236,45 @@
   }
 </script>
 
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js/dist/umd/supabase.js"></script>
 <script>
 // Configura tu conexión a Supabase
-const supabaseUrl = 'https://ufajxdbkvxlcsohtindu.supabase.co';      // ← Reemplaza con tu URL
-const supabaseKey = 'sb_publishable_xoZwd-a_v9wW0STtHJqsUw_VSwoBqTx'; // ← Reemplaza con tu ANON KEY
+const supabaseUrl = 'https://ufajxdbkvxlcsohtindu.supabase.co';
+const supabaseKey = 'sb_publishable_xoZwd-a_v9wW0STtHJqsUw_VSwoBqTx';
 const supabase = window.supabase.createClient(supabaseUrl, supabaseKey);
 
-document.getElementById('loginForm').addEventListener('submit', async function(event) {
-    event.preventDefault();
-    const usuario = document.getElementById('usuario').value;
-    const correo = document.getElementById('correo').value;
-
-    // Guarda en la tabla "usuarios"
-    const { data, error } = await supabase
-        .from('usuarios') // ← Cambia por el nombre de tu tabla
-        .insert([{ usuario, correo }]);
-
-    if (error) {
-        alert('Error al guardar: ' + error.message);
+document.addEventListener('DOMContentLoaded', () => {
+    const loginForm = document.getElementById('loginForm');
+    if (!loginForm) { 
+        console.error("No se encontró el formulario con id 'loginForm'");
         return;
-    } else {
-        alert('¡Usuario guardado con éxito!');
-        showSection();
     }
+    loginForm.addEventListener('submit', async function(event) {
+        event.preventDefault();
+        const usuario = document.getElementById('usuario').value;
+        const correo = document.getElementById('correo').value;
 
-    // Aquí podrías iniciar sesión o mostrar el siguiente paso
+        // Guarda en la tabla "usuarios"
+        try {
+            const { data, error } = await supabase
+                .from('usuarios')
+                .insert([{ usuario, correo }]);
+            if (error) {
+                alert('Error al guardar: ' + error.message);
+                return;
+            } else {
+                // Puedes quitar el alert o dejarlo
+                // alert('¡Usuario guardado con éxito!');
+                showSection();
+            }
+        } catch (err) {
+            alert('Error al conectar con Supabase: ' + err.message);
+        }
+    });
 });
 </script>
     
 </body>
 
 </html>
+
