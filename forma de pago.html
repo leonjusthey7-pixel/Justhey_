@@ -1,238 +1,162 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Flor de Arcilla | Checkout Seguro</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
-    <style>
-        :root {
-            --primary: #594D47;
-            --secondary: #EADCD1;
-            --accent: #A5A58D;
-            --bg: #FDFCFB;
-        }
-        body {
-            font-family: 'Inter', sans-serif;
-            background-color: var(--bg);
-            color: var(--primary);
-        }
-        .font-serif { font-family: 'Playfair Display', serif; }
-        
-        .fade-in { animation: fadeIn 0.5s ease-out; }
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(10px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Flor de Arcilla | Checkout Seguro</title>
 
-        .input-field {
-            width: 100%;
-            padding: 0.75rem;
-            border: 1px solid #D1D5DB;
-            border-radius: 0.5rem;
-            outline: none;
-            transition: all 0.3s;
-        }
-        .input-field:focus {
-            border-color: var(--accent);
-            ring: 2px;
-            ring-color: var(--accent);
-        }
-        
-        .method-card {
-            border: 2px solid transparent;
-            cursor: pointer;
-            transition: all 0.3s;
-        }
-        .method-card.active {
-            border-color: var(--primary);
-            background-color: #F8F4EF;
-        }
+<script src="https://cdn.tailwindcss.com"></script>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
 
-        .btn-primary {
-            background-color: var(--primary);
-            color: white;
-            padding: 1rem;
-            border-radius: 0.5rem;
-            font-weight: 600;
-            width: 100%;
-            transition: opacity 0.3s;
-        }
-        .btn-primary:hover { opacity: 0.9; }
-        
-        .hidden { display: none; }
-    </style>
+<style>
+:root {
+  --primary:#594D47;
+  --secondary:#EADCD1;
+  --accent:#A5A58D;
+  --bg:#FDFCFB;
+}
+body{
+  font-family:'Inter',sans-serif;
+  background:var(--bg);
+  color:var(--primary);
+}
+.font-serif{font-family:'Playfair Display',serif}
+.input-field{
+  width:100%;
+  padding:.75rem;
+  border:1px solid #D1D5DB;
+  border-radius:.5rem;
+}
+.method-card.active{
+  border-color:var(--primary);
+  background:#F8F4EF;
+}
+.btn-primary{
+  background:var(--primary);
+  color:white;
+  padding:1rem;
+  border-radius:.5rem;
+  width:100%;
+}
+.hidden{display:none}
+</style>
 </head>
+
 <body class="min-h-screen flex flex-col">
 
-    <!-- Navbar -->
-    <nav class="p-6 flex justify-between items-center bg-white shadow-sm">
-        <h1 class="font-serif text-2xl tracking-tighter">Flor de Arcilla</h1>
-        <a href="productos.html" class="text-sm font-semibold hover:text-accent">← Volver al catálogo</a>
-    </nav>
+<nav class="p-6 flex justify-between bg-white shadow-sm">
+<h1 class="font-serif text-2xl">Flor de Arcilla</h1>
+<a href="productos.html" class="text-sm font-semibold">← Volver</a>
+</nav>
 
-    <main class="flex-grow flex items-center justify-center p-4">
-        
-        <!-- PANTALLA DE LOGIN (Simplificada para flujo rápido) -->
-        <div id="login-section" class="fade-in bg-white p-8 rounded-2xl shadow-xl w-full max-w-md">
-            <div class="text-center mb-8">
-                <h2 class="font-serif text-3xl mb-2">Mi Cuenta</h2>
-                <p class="text-gray-500">Inicia sesión para finalizar tu pedido</p>
-            </div>
-            
-            <form onsubmit="event.preventDefault(); showSection();">
-                <div class="space-y-4">
-                    <input type="email" placeholder="Correo electrónico" class="input-field" required>
-                    <input type="password" placeholder="Contraseña" class="input-field" required>
-                    <button type="submit" class="btn-primary">Continuar al Pago</button>
-                </div>
-                <p class="mt-6 text-center text-xs text-gray-400">¿Nuevo cliente? <span class="text-accent cursor-pointer font-bold">Crear cuenta</span></p>
-            </form>
-        </div>
+<main class="flex-grow flex items-center justify-center p-4">
 
-        <!-- PANTALLA DE PAGO -->
-        <div id="payment-section" class="fade-in bg-white p-8 rounded-3xl shadow-2xl w-full max-w-4xl hidden">
-            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
-                
-                <!-- Columna Izquierda: Resumen y Selección de Método -->
-                <div>
-                    <h2 class="font-serif text-2xl mb-6 border-b pb-2">Tu Pedido</h2>
-                    <div id="resumen-productos" class="space-y-4 mb-6"></div>
-                    <h3 class="font-semibold text-sm mb-4 uppercase tracking-widest text-gray-400">Selecciona Método de Pago</h3>
-                    <div class="grid grid-cols-2 gap-4 mb-8">
-                        <div id="btn-bank" onclick="selectMethod('bank')" class="method-card p-4 rounded-xl border-2 text-center">
-                            <span class="block text-xl mb-1">🏦</span>
-                            <span class="text-xs font-bold uppercase">Depósito</span>
-                        </div>
-                    </div>
+<!-- LOGIN -->
+<div id="login-section" class="bg-white p-8 rounded-2xl shadow-xl w-full max-w-md">
+<h2 class="font-serif text-3xl mb-4 text-center">Mi Cuenta</h2>
+<form onsubmit="event.preventDefault(); showSection();">
+<input type="email" placeholder="Correo" class="input-field mb-4" required>
+<input type="password" placeholder="Contraseña" class="input-field mb-4" required>
+<button class="btn-primary">Continuar al Pago</button>
+</form>
+</div>
 
-<div class="bg-gray-50 p-4 rounded-xl space-y-2 text-sm">
-    <div class="flex justify-between italic">
-                     <span>Subtotal</span>
-        <span>$<span id="subtotal">0.00</span></span>
-    </div>
-    <div class="flex justify-between italic">
-        <span>Envío</span>
-        <span class="text-green-600">Gratis</span>
-    </div>
-    <div class="flex justify-between font-bold text-lg pt-2 border-t mt-2">
-        <span>Total</span>
-        <span>$<span id="total">0.00</span></span>
-    </div>
-</div>                </div>
+<!-- PAGO -->
+<div id="payment-section" class="hidden bg-white p-8 rounded-3xl shadow-2xl w-full max-w-4xl">
 
-                <!-- Columna Derecha: Formularios Dinámicos -->
-<div class="bg-[#FDFCFB] p-6 rounded-2xl border border-secondary">
-  <h2 class="font-serif text-2xl mb-2 text-[#EBC03F]">Banco Pichincha</h2>
-  <p class="text-xs text-gray-500 mb-6 uppercase tracking-tighter">
-    Instrucciones de depósito o transferencia
-  </p>
+<div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
 
-  <div class="bg-white p-4 rounded-xl border-l-4 border-[#EBC03F] mb-6 space-y-1 text-sm">
-    <p><b>Nombre:</b> Flor de Arcilla S.A.</p>
-    <p><b>RUC:</b> 0706408663001</p>
-    <p><b>Tipo de Cuenta:</b> Ahorros</p>
-    <p><b>Cuenta No:</b> 2200000000</p>
-    <p><b>Correo:</b> info.FlordeArcilla@gmail.com</p>
-  </div>
+<!-- RESUMEN -->
+<div>
+<h2 class="font-serif text-2xl mb-4">Tu Pedido</h2>
+<div id="resumen-productos" class="space-y-4"></div>
 
-  <form onsubmit="event.preventDefault(); finishOrder();">
-    <div class="space-y-4">
-      <label class="block text-xs font-bold text-gray-400 uppercase">
-        Subir comprobante
-      </label>
+<div class="mt-6 bg-gray-50 p-4 rounded-xl">
+<div class="flex justify-between"><span>Subtotal</span>$<span id="subtotal">0.00</span></div>
+<div class="flex justify-between font-bold mt-2"><span>Total</span>$<span id="total">0.00</span></div>
+</div>
+</div>
 
-      <div class="border-2 border-dashed border-gray-200 p-4 rounded-xl text-center text-xs text-gray-400">
-        <label class="cursor-pointer">
-          Haga clic para adjuntar captura del depósito
-          <input type="file" class="hidden" required>
-        </label>
-      </div>
+<!-- FORMULARIO -->
+<div class="bg-[#FDFCFB] p-6 rounded-2xl border">
 
-      <input type="text" placeholder="Número de comprobante o referencia" class="input-field" required>
+<h2 class="font-serif text-2xl mb-4 text-[#EBC03F]">Datos del Cliente</h2>
 
-<button type="button" class="btn-primary" onclick="enviarPedidoWhatsApp()">
-  Confirmar pedido
-</button>
-    </div>
-  </form>
-</div>            </div>
-        </div>
+<input id="nombreCliente" type="text" placeholder="Nombre" class="input-field mb-3" required>
+<input id="apellidoCliente" type="text" placeholder="Apellido" class="input-field mb-3" required>
+<textarea id="direccionCliente" rows="3" placeholder="Dirección de entrega" class="input-field mb-6" required></textarea>
 
-    </main>
+<h2 class="font-serif text-xl mb-2 text-[#EBC03F]">Banco Pichincha</h2>
 
-    <footer class="p-6 text-center text-[10px] text-gray-400 uppercase tracking-widest">
-        &copy; 2024 Flor de Arcilla | Compra Segura Protegida
-    </footer>
+<div class="bg-white p-4 rounded-xl text-sm mb-4">
+<p><b>Nombre:</b> Flor de Arcilla S.A.</p>
+<p><b>Cuenta:</b> 2200000000</p>
+</div>
+
+<button class="btn-primary" onclick="enviarPedidoWhatsApp()">Confirmar pedido</button>
+
+</div>
+</div>
+</div>
+
+</main>
+
+<footer class="p-4 text-center text-xs text-gray-400">
+© 2024 Flor de Arcilla
+</footer>
 
 <script>
-  // OBTENER CARRITO
-  const carrito = JSON.parse(localStorage.getItem("carrito")) || [];
+const carrito = JSON.parse(localStorage.getItem("carrito")) || [];
+const contenedor = document.getElementById("resumen-productos");
+const subtotalHTML = document.getElementById("subtotal");
+const totalHTML = document.getElementById("total");
 
-  const contenedor = document.getElementById("resumen-productos");
-  const subtotalHTML = document.getElementById("subtotal");
-  const totalHTML = document.getElementById("total");
+let subtotal = 0;
 
-  let subtotal = 0;
+carrito.forEach(p => {
+  subtotal += p.precio * p.cantidad;
+  contenedor.innerHTML += `
+  <div>
+    <p class="font-bold">${p.nombre}</p>
+    <p class="text-sm">Cantidad: ${p.cantidad}</p>
+    <p>$${(p.precio * p.cantidad).toFixed(2)}</p>
+  </div>`;
+});
 
-  // MOSTRAR PRODUCTOS
-  carrito.forEach(producto => {
-    const totalProducto = producto.precio * producto.cantidad;
-    subtotal += totalProducto;
+subtotalHTML.textContent = subtotal.toFixed(2);
+totalHTML.textContent = subtotal.toFixed(2);
 
-    contenedor.innerHTML += `
-      <div class="flex items-center gap-4">
-        <img src="${producto.img}" class="w-20 h-20 rounded-xl object-cover border">
-        <div>
-          <p class="font-bold">${producto.nombre}</p>
-          <p class="text-sm text-gray-500 italic">Cantidad: ${producto.cantidad}</p>
-          <p class="font-semibold mt-1">$${totalProducto.toFixed(2)}</p>
-        </div>
-      </div>
-    `;
+function showSection(){
+  document.getElementById("login-section").classList.add("hidden");
+  document.getElementById("payment-section").classList.remove("hidden");
+}
+
+const telefonoWhatsApp = "593981706677";
+
+function enviarPedidoWhatsApp(){
+  const nombre = document.getElementById("nombreCliente").value.trim();
+  const apellido = document.getElementById("apellidoCliente").value.trim();
+  const direccion = document.getElementById("direccionCliente").value.trim();
+
+  if(!nombre || !apellido || !direccion){
+    alert("Completa los datos del cliente");
+    return;
+  }
+
+  let mensaje = `🌿 *Nuevo pedido - Flor de Arcilla* 🌿\n\n`;
+  mensaje += `👤 Cliente: ${nombre} ${apellido}\n`;
+  mensaje += `📍 Dirección: ${direccion}\n\n`;
+
+  carrito.forEach((p,i)=>{
+    mensaje += `${i+1}. ${p.nombre}\nCantidad: ${p.cantidad}\nPrecio: $${p.precio}\n\n`;
   });
 
-  subtotalHTML.textContent = subtotal.toFixed(2);
-  totalHTML.textContent = subtotal.toFixed(2);
+  mensaje += `💰 Total: $${subtotal.toFixed(2)}`;
 
-  function showSection() {
-    document.getElementById("login-section").classList.add("hidden");
-    document.getElementById("payment-section").classList.remove("hidden");
-  }
-
-  function totalCarrito() {
-    return carrito.reduce((total, prod) => {
-      return total + prod.precio * prod.cantidad;
-    }, 0);
-  }
-
-  // WHATSAPP
-  const telefonoWhatsApp = "593981706677";
-
-  function enviarPedidoWhatsApp() {
-    if (carrito.length === 0) {
-      alert("El carrito está vacío");
-      return;
-    }
-
-    let mensaje = "🌿 *Nuevo pedido - Flor de Arcilla* 🌿\n\n";
-
-    carrito.forEach((prod, index) => {
-      mensaje += `${index + 1}. ${prod.nombre}\n`;
-      mensaje += `Cantidad: ${prod.cantidad}\n`;
-      mensaje += `Precio unitario: $${prod.precio.toFixed(2)}\n\n`;
-    });
-
-    mensaje += `💰 *Total: $${totalCarrito().toFixed(2)}*`;
-
-    const url = `https://web.whatsapp.com/send?phone=${telefonoWhatsApp}&text=${encodeURIComponent(mensaje)}`;
-
-    window.open(url, "_blank");
-
-    // LIMPIAR CARRITO DESPUÉS DE ENVIAR
-    localStorage.removeItem("carrito");
-  }
+  window.open(`https://wa.me/${telefonoWhatsApp}?text=${encodeURIComponent(mensaje)}`, "_blank");
+  localStorage.removeItem("carrito");
+}
 </script>
+
 </body>
 </html>
