@@ -115,14 +115,25 @@ let subtotal = 0;
 
 carrito.forEach(p => {
   subtotal += p.precio * p.cantidad;
-  contenedor.innerHTML += `
-  <div>
-    <p class="font-bold">${p.nombre}</p>
-    <p class="text-sm">Cantidad: ${p.cantidad}</p>
-    <p>$${(p.precio * p.cantidad).toFixed(2)}</p>
-  </div>`;
-});
 
+  contenedor.innerHTML += `
+    <div class="flex items-center gap-4 border-b pb-4">
+      <img 
+        src="${p.img}" 
+        alt="${p.nombre}" 
+        class="w-20 h-20 rounded-xl object-cover border"
+      >
+
+      <div>
+        <p class="font-bold">${p.nombre}</p>
+        <p class="text-sm text-gray-500">Cantidad: ${p.cantidad}</p>
+        <p class="font-semibold mt-1">
+          $${(p.precio * p.cantidad).toFixed(2)}
+        </p>
+      </div>
+    </div>
+  `;
+});
 subtotalHTML.textContent = subtotal.toFixed(2);
 totalHTML.textContent = subtotal.toFixed(2);
 
@@ -160,3 +171,4 @@ function enviarPedidoWhatsApp(){
 
 </body>
 </html>
+
