@@ -9,7 +9,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
 
 <style>
-:root {
+:root{
   --primary:#594D47;
   --secondary:#EADCD1;
   --accent:#A5A58D;
@@ -27,10 +27,6 @@ body{
   border:1px solid #D1D5DB;
   border-radius:.5rem;
 }
-.method-card.active{
-  border-color:var(--primary);
-  background:#F8F4EF;
-}
 .btn-primary{
   background:var(--primary);
   color:white;
@@ -45,20 +41,20 @@ body{
 <body class="min-h-screen flex flex-col">
 
 <nav class="p-6 flex justify-between bg-white shadow-sm">
-<h1 class="font-serif text-2xl">Flor de Arcilla</h1>
-<a href="productos.html" class="text-sm font-semibold">← Volver</a>
+  <h1 class="font-serif text-2xl">Flor de Arcilla</h1>
+  <a href="productos.html" class="text-sm font-semibold">← Volver</a>
 </nav>
 
 <main class="flex-grow flex items-center justify-center p-4">
 
 <!-- LOGIN -->
 <div id="login-section" class="bg-white p-8 rounded-2xl shadow-xl w-full max-w-md">
-<h2 class="font-serif text-3xl mb-4 text-center">Mi Cuenta</h2>
-<form onsubmit="event.preventDefault(); showSection();">
-<input type="email" placeholder="Correo" class="input-field mb-4" required>
-<input type="password" placeholder="Contraseña" class="input-field mb-4" required>
-<button class="btn-primary">Continuar al Pago</button>
-</form>
+  <h2 class="font-serif text-3xl mb-4 text-center">Mi Cuenta</h2>
+  <form onsubmit="event.preventDefault(); showSection();">
+    <input type="email" placeholder="Correo" class="input-field mb-4" required>
+    <input type="password" placeholder="Contraseña" class="input-field mb-4" required>
+    <button class="btn-primary">Continuar al Pago</button>
+  </form>
 </div>
 
 <!-- PAGO -->
@@ -68,32 +64,38 @@ body{
 
 <!-- RESUMEN -->
 <div>
-<h2 class="font-serif text-2xl mb-4">Tu Pedido</h2>
-<div id="resumen-productos" class="space-y-4"></div>
+  <h2 class="font-serif text-2xl mb-4">Tu Pedido</h2>
+  <div id="resumen-productos" class="space-y-4"></div>
 
-<div class="mt-6 bg-gray-50 p-4 rounded-xl">
-<div class="flex justify-between"><span>Subtotal</span>$<span id="subtotal">0.00</span></div>
-<div class="flex justify-between font-bold mt-2"><span>Total</span>$<span id="total">0.00</span></div>
-</div>
+  <div class="mt-6 bg-gray-50 p-4 rounded-xl">
+    <div class="flex justify-between">
+      <span>Subtotal</span>
+      <span>$<span id="subtotal">0.00</span></span>
+    </div>
+    <div class="flex justify-between font-bold mt-2">
+      <span>Total</span>
+      <span>$<span id="total">0.00</span></span>
+    </div>
+  </div>
 </div>
 
 <!-- FORMULARIO -->
 <div class="bg-[#FDFCFB] p-6 rounded-2xl border">
 
-<h2 class="font-serif text-2xl mb-4 text-[#EBC03F]">Datos del Cliente</h2>
+  <h2 class="font-serif text-2xl mb-4 text-[#EBC03F]">Datos del Cliente</h2>
 
-<input id="nombreCliente" type="text" placeholder="Nombre" class="input-field mb-3" required>
-<input id="apellidoCliente" type="text" placeholder="Apellido" class="input-field mb-3" required>
-<textarea id="direccionCliente" rows="3" placeholder="Dirección de entrega" class="input-field mb-6" required></textarea>
+  <input id="nombreCliente" type="text" placeholder="Nombre" class="input-field mb-3">
+  <input id="apellidoCliente" type="text" placeholder="Apellido" class="input-field mb-3">
+  <textarea id="direccionCliente" rows="3" placeholder="Dirección de entrega" class="input-field mb-6"></textarea>
 
-<h2 class="font-serif text-xl mb-2 text-[#EBC03F]">Banco Pichincha</h2>
+  <h2 class="font-serif text-xl mb-2 text-[#EBC03F]">Banco Pichincha</h2>
 
-<div class="bg-white p-4 rounded-xl text-sm mb-4">
-<p><b>Nombre:</b> Flor de Arcilla S.A.</p>
-<p><b>Cuenta:</b> 2200000000</p>
-</div>
+  <div class="bg-white p-4 rounded-xl text-sm mb-4">
+    <p><b>Nombre:</b> Flor de Arcilla S.A.</p>
+    <p><b>Cuenta:</b> 2200000000</p>
+  </div>
 
-<button class="btn-primary" onclick="enviarPedidoWhatsApp()">Confirmar pedido</button>
+  <button class="btn-primary" onclick="enviarPedidoWhatsApp()">Confirmar pedido</button>
 
 </div>
 </div>
@@ -113,27 +115,25 @@ const totalHTML = document.getElementById("total");
 
 let subtotal = 0;
 
+if(carrito.length === 0){
+  contenedor.innerHTML = "<p class='text-gray-400'>El carrito está vacío</p>";
+}
+
 carrito.forEach(p => {
   subtotal += p.precio * p.cantidad;
 
   contenedor.innerHTML += `
     <div class="flex items-center gap-4 border-b pb-4">
-      <img 
-        src="${p.img}" 
-        alt="${p.nombre}" 
-        class="w-20 h-20 rounded-xl object-cover border"
-      >
-
+      <img src="${p.img}" alt="${p.nombre}" class="w-20 h-20 rounded-xl object-cover border">
       <div>
         <p class="font-bold">${p.nombre}</p>
         <p class="text-sm text-gray-500">Cantidad: ${p.cantidad}</p>
-        <p class="font-semibold mt-1">
-          $${(p.precio * p.cantidad).toFixed(2)}
-        </p>
+        <p class="font-semibold mt-1">$${(p.precio * p.cantidad).toFixed(2)}</p>
       </div>
     </div>
   `;
 });
+
 subtotalHTML.textContent = subtotal.toFixed(2);
 totalHTML.textContent = subtotal.toFixed(2);
 
@@ -145,24 +145,33 @@ function showSection(){
 const telefonoWhatsApp = "593981706677";
 
 function enviarPedidoWhatsApp(){
-  const nombre = document.getElementById("nombreCliente").value.trim();
-  const apellido = document.getElementById("apellidoCliente").value.trim();
-  const direccion = document.getElementById("direccionCliente").value.trim();
+  if(carrito.length === 0){
+    alert("El carrito está vacío");
+    return;
+  }
+
+  const nombre = nombreCliente.value.trim();
+  const apellido = apellidoCliente.value.trim();
+  const direccion = direccionCliente.value.trim();
 
   if(!nombre || !apellido || !direccion){
-    alert("Completa los datos del cliente");
+    alert("Completa todos los datos del cliente");
     return;
   }
 
   let mensaje = `🌿 *Nuevo pedido - Flor de Arcilla* 🌿\n\n`;
-  mensaje += `👤 Cliente: ${nombre} ${apellido}\n`;
-  mensaje += `📍 Dirección: ${direccion}\n\n`;
+  mensaje += `👤 *Cliente:* ${nombre} ${apellido}\n`;
+  mensaje += `📍 *Dirección:* ${direccion}\n\n`;
+  mensaje += `🛒 *Productos:*\n`;
 
   carrito.forEach((p,i)=>{
-    mensaje += `${i+1}. ${p.nombre}\nCantidad: ${p.cantidad}\nPrecio: $${p.precio}\n\n`;
+    mensaje += `${i+1}. ${p.nombre}\n`;
+    mensaje += `Cantidad: ${p.cantidad}\n`;
+    mensaje += `Precio: $${p.precio}\n\n`;
   });
 
-  mensaje += `💰 Total: $${subtotal.toFixed(2)}`;
+  mensaje += `💰 *Total:* $${subtotal.toFixed(2)}\n\n`;
+mensaje += `⚠️ *ADJUNTE EL COMPROBANTE DE DEPÓSITO, POR FAVOR 😊*`;
 
   window.open(`https://wa.me/${telefonoWhatsApp}?text=${encodeURIComponent(mensaje)}`, "_blank");
   localStorage.removeItem("carrito");
@@ -171,4 +180,3 @@ function enviarPedidoWhatsApp(){
 
 </body>
 </html>
-
