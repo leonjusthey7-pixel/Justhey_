@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Flor de Arcilla | Productos</title>
+    <title>Flor de Arcilla | Balsamos</title>
     
     <!-- Carga de Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
@@ -51,6 +51,31 @@
     <section class="bg-secondary py-16 text-center">
         <h1 class="text-5xl font-extrabold text-primary mb-3">BALSAMOS</h1>
         <p class="text-xl text-gray-700">Fórmulas puras, libres de químicos y potenciadas por el poder de la naturaleza.</p>
+
+<!-- SUBMENÚ DE CATEGORÍAS -->
+<div class="flex justify-center mt-6">
+  <div class="relative w-56 text-center">
+
+    <button id="btnCategorias"
+      class="w-full bg-white text-primary font-semibold text-sm py-2 px-4 rounded-full shadow-md flex justify-between items-center">
+      Otros Productos
+      <span id="iconoCategoria">+</span>
+    </button>
+
+    <nav id="menuCategorias"
+      class="hidden absolute left-1/2 -translate-x-1/2 mt-3 bg-white rounded-xl shadow-lg w-full overflow-hidden">
+
+      <a href="jabones.html" class="block py-2 text-sm hover:bg-secondary">Jabones</a>
+      <a href="mascarillas.html" class="block py-2 text-sm hover:bg-secondary">Mascarillas</a>
+      <a href="serums.html" class="block py-2 text-sm hover:bg-secondary">Sérums</a>
+      <a href="exfoliantes.html" class="block py-2 text-sm hover:bg-secondary">Exfoliantes</a>
+      <a href="tonicos.html" class="block py-2 text-sm hover:bg-secondary">Tónicos</a>
+      <a href="balsamos.html" class="block py-2 text-sm hover:bg-secondary">Bálsamos</a>
+
+    </nav>
+
+  </div>
+</div>
 
                 <link rel="stylesheet" href="style_carrito.css">
 
@@ -169,6 +194,32 @@
         </div>
         </section>
                     <script src="style_carrito.js"></script>
+
+<script>
+  const btn = document.getElementById("btnCategorias");
+  const menu = document.getElementById("menuCategorias");
+  const icono = document.getElementById("iconoCategoria");
+
+  // Abrir / cerrar al hacer clic en el botón
+  btn.addEventListener("click", (e) => {
+    e.stopPropagation(); // evita que el click cierre inmediatamente
+    menu.classList.toggle("hidden");
+    icono.textContent = menu.classList.contains("hidden") ? "+" : "–";
+  });
+
+  // Evitar cierre al hacer clic dentro del menú
+  menu.addEventListener("click", (e) => {
+    e.stopPropagation();
+  });
+
+  // Cerrar al hacer clic fuera
+  document.addEventListener("click", () => {
+    if (!menu.classList.contains("hidden")) {
+      menu.classList.add("hidden");
+      icono.textContent = "+";
+    }
+  });
+</script>
 
 </body>
 </html>
