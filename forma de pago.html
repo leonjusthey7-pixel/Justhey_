@@ -159,20 +159,19 @@ function enviarPedidoWhatsApp(){
     return;
   }
 
-let mensaje = "";
-mensaje += "📋 *NUEVO PEDIDO - FLOR DE ARCILLA*\n\n";
-mensaje += "👤 *Cliente:* " + nombre + " " + apellido + "\n";
-mensaje += "🏠 *Direccion:* " + direccion + "\n\n";
-mensaje += "📦 *Productos:*\n";
+  let mensaje = `🌿 *Nuevo pedido - Flor de Arcilla* 🌿\n\n`;
+  mensaje += `👤 *Cliente:* ${nombre} ${apellido}\n`;
+  mensaje += `📍 *Dirección:* ${direccion}\n\n`;
+  mensaje += `🛒 *Productos:*\n`;
 
-carrito.forEach((p, i) => {
-  mensaje += `${i + 1}. ${p.nombre}\n`;
-  mensaje += `Cantidad: ${p.cantidad}\n`;
-  mensaje += `Precio: $${p.precio}\n\n`;
-});
+  carrito.forEach((p,i)=>{
+    mensaje += `${i+1}. ${p.nombre}\n`;
+    mensaje += `Cantidad: ${p.cantidad}\n`;
+    mensaje += `Precio: $${p.precio}\n\n`;
+  });
 
-mensaje += `💰 *TOTAL:* $${subtotal.toFixed(2)}\n\n`;
-mensaje += "❗ *ADJUNTE EL COMPROBANTE DE DEPOSITO, POR FAVOR 😊*";
+  mensaje += `💰 *Total:* $${subtotal.toFixed(2)}\n\n`;
+mensaje += `⚠️ *ADJUNTE EL COMPROBANTE DE DEPÓSITO, POR FAVOR 😊*`;
 
   window.open(`https://wa.me/${telefonoWhatsApp}?text=${encodeURIComponent(mensaje)}`, "_blank");
   localStorage.removeItem("carrito");
@@ -181,5 +180,6 @@ mensaje += "❗ *ADJUNTE EL COMPROBANTE DE DEPOSITO, POR FAVOR 😊*";
 
 </body>
 </html>
+
 
 
