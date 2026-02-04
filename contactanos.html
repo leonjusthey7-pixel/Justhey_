@@ -39,7 +39,7 @@
     <header class="bg-primary text-background shadow-xl sticky top-0 z-10">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex justify-between items-center">
             <div class="text-3xl font-bold tracking-widest text-secondary">Flor de Arcilla</div>
-            <nav class="hidden md:flex space-x-6">
+<nav id="menuMovil" class="hidden md:flex md:space-x-6 flex-col md:flex-row absolute md:static top-20 left-0 w-full md:w-auto bg-primary md:bg-transparent p-6 md:p-0 space-y-4 md:space-y-0">
                 <!-- Enlaces inactivos: text-accent (Verde Oliva/Salvia) | Hover: text-secondary -->
                 <a href="index.html" class="text-accent hover:text-secondary transition duration-300">Inicio</a>
                 <a href="productos.html" class="text-accent hover:text-secondary transition duration-300">Productos</a>
@@ -48,9 +48,9 @@
                 <a href="ubicacion.html" class="text-accent hover:text-secondary transition duration-300">Ubicación</a>
                 <a href="desarrolladores.html" class="text-accent hover:text-secondary transition duration-300">Desarrolladores</a>
             </nav>
-            <button class="md:hidden text-2xl text-secondary" aria-label="Menu">
-                &#9776; <!-- Icono de menú (Hamburguesa) -->
-            </button>
+<button id="btnMenu" class="md:hidden text-2xl text-secondary" aria-label="Menu">
+  &#9776;
+</button> 
         </div>
     </header>
 
@@ -87,7 +87,7 @@
                         
                         <!-- Mensaje -->
                         <div class="mb-6">
-                            <label for="message" class="block text-sm font-medium text-primary mb-1">Mensaje</label>
+                            <label for="message" class="block text-sm font-medium text-primary mb-1" >Mensaje</label>
                             <textarea id="message" name="message" rows="4" required placeholder="Envianos un mensaje directo a nuestro correo 👉" class="w-full p-3 border border-gray-300 rounded-lg focus:ring-accent focus:border-accent"></textarea>
                         </div>
                         
@@ -164,7 +164,7 @@
                 Nuestra misión es simple: devolver a la tierra lo que tomamos. Utilizamos métodos de producción sostenibles y garantizamos que cada producto esté libre de toxinas y crueldad animal.
             </p>
             <p class="mt-8 text-sm opacity-75 text-secondary">
-                © 2025 Flor de Arcilla.
+                © 2025 Flor de Arcilla. 
             </p>
         </div>
     </footer>
@@ -182,9 +182,16 @@
             document.getElementById('modal-message').classList.add('hidden');
             document.getElementById('modal-message').classList.remove('flex');
         }
+
+        //menu
+
+          const btnMenu = document.getElementById("btnMenu");
+  const menu = document.getElementById("menuMovil");
+
+  btnMenu.addEventListener("click", () => {
+    menu.classList.toggle("hidden");
+  });
     </script>
 
 </body>
-
 </html>
-
