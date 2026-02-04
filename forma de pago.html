@@ -160,10 +160,10 @@ function enviarPedidoWhatsApp(){
   }
 
 let mensaje = "";
-mensaje += "📋 NUEVO PEDIDO - FLOR DE ARCILLA\n\n";
-mensaje += "👤 Cliente: " + nombre + " " + apellido + "\n";
-mensaje += "🏠 Direccion: " + direccion + "\n\n";
-mensaje += "📦 Productos:\n";
+mensaje += "📋 *NUEVO PEDIDO - FLOR DE ARCILLA*\n\n";
+mensaje += "👤 *Cliente:* " + nombre + " " + apellido + "\n";
+mensaje += "🏠 *Direccion:* " + direccion + "\n\n";
+mensaje += "📦 *Productos:*\n";
 
 carrito.forEach((p, i) => {
   mensaje += `${i + 1}. ${p.nombre}\n`;
@@ -171,8 +171,8 @@ carrito.forEach((p, i) => {
   mensaje += `Precio: $${p.precio}\n\n`;
 });
 
-mensaje += `💲 TOTAL: $${subtotal.toFixed(2)}\n\n`;
-mensaje += "❗ ADJUNTE EL COMPROBANTE DE DEPOSITO, POR FAVOR 😊";
+mensaje += `💰 *TOTAL:* $${subtotal.toFixed(2)}\n\n`;
+mensaje += "❗ *ADJUNTE EL COMPROBANTE DE DEPOSITO, POR FAVOR 😊*";
 
   window.open(`https://wa.me/${telefonoWhatsApp}?text=${encodeURIComponent(mensaje)}`, "_blank");
   localStorage.removeItem("carrito");
@@ -181,4 +181,5 @@ mensaje += "❗ ADJUNTE EL COMPROBANTE DE DEPOSITO, POR FAVOR 😊";
 
 </body>
 </html>
+
 
